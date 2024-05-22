@@ -2,17 +2,17 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useSnapshot } from "valtio";
 
 import state from "../store";
-
+import { CustomButton } from "../components";
 import {
   headContainerAnimation,
   headContentAnimation,
   headTextAnimation,
   slideAnimation,
 } from "../config/motion";
-import CustomButton from "../components/CustomButton";
 
 const Home = () => {
   const snap = useSnapshot(state);
+
   return (
     <AnimatePresence>
       {snap.intro && (
@@ -24,6 +24,7 @@ const Home = () => {
               className='w-8 h-8 object-contain'
             />
           </motion.header>
+
           <motion.div className='home-content' {...headContainerAnimation}>
             <motion.div {...headTextAnimation}>
               <h1 className='head-text'>
